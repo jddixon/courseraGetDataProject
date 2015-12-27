@@ -281,20 +281,21 @@ run_analysis <- function() {
     #################################################################
     grouped     <- simplerData %>% group_by(activity, subject)
     tidyData5   <- summarize_each(grouped, funs(mean))
+    write.table(tidyData5, 'tidyData5.txt')
 
     #################################################################
-    # RETURNED FOR DEBUGGING 
+    # RETURNED FOR DEBUGGING - this section is no longer in use
     #################################################################
 
     # deference these using [[, not [
-    output <- list(activityLabels,  features,
-                  testSubjects,     testDataX,       testDataY, 
-                  trainSubjects,    trainDataX,      trainDataY, 
-                  mergedSubjects,   mergedDataX,     mergedDataY,
-                  mergedBodyAccX,   mergedBodyAccY,  mergedBodyAccZ,
-                  mergedTotalAccX,  mergedTotalAccY, mergedBodyGyroZ,
-                  mergedBodyGyroX,  mergedBodyGyroY, mergedBodyGyroZ,
-                  simplerData,      tidyData5
-                  )
-    return(output)
+    #output <- list(activityLabels,  features,
+    #              testSubjects,     testDataX,       testDataY, 
+    #              trainSubjects,    trainDataX,      trainDataY, 
+    #              mergedSubjects,   mergedDataX,     mergedDataY,
+    #              mergedBodyAccX,   mergedBodyAccY,  mergedBodyAccZ,
+    #              mergedTotalAccX,  mergedTotalAccY, mergedBodyGyroZ,
+    #              mergedBodyGyroX,  mergedBodyGyroY, mergedBodyGyroZ,
+    #              simplerData,      tidyData5
+    #              )
+    #return(output)
 }
